@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InOrder;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.mockito.Mockito.inOrder;
@@ -19,11 +18,11 @@ public class PrintStatement {
     Display display;
     private Account account;
    @Mock
-   TransactionDtate transactionDtate;
+   TransactionDate transactionDate;
 
     @Before
     public void setUp() {
-        TransactionRepository transactionRepository = new TransactionRepository(transactionDtate);
+        TransactionRepository transactionRepository = new TransactionRepository(transactionDate);
         StatementPrinter statementPrinter = new StatementPrinter();
         account = new Account(transactionRepository,statementPrinter);
     }
