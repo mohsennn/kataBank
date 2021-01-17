@@ -16,13 +16,18 @@ public class AccountTest {
     private Account account;
 
     @Before
-    public void initialise(){
+    public void setUp(){
         account= new Account(transactionRepository);
     }
 
     @Test
-    public void save_desposit_transaction() {
+    public void save_desposit_transaction_Test() {
         account.deposit(100);
         verify(transactionRepository).addDeposit(100);
+    }
+    @Test
+    public void withdraw_transaction_Test(){
+        account.withdraw(100);
+        verify(transactionRepository).withdraw(100);
     }
 }
