@@ -1,10 +1,14 @@
 package com.kataBank.adservio.kataBank;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InOrder;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
 
 
@@ -13,6 +17,13 @@ public class PrintStatement {
 
     @Mock
     Display display;
+    private Account account;
+
+    @Before
+    public void setUp() {
+        TransactionRepository transactionRepository = new TransactionRepository();
+        account = new Account(transactionRepository);
+    }
 
     @Test
     public void print_statement_with_All_transaction() {
@@ -20,11 +31,12 @@ public class PrintStatement {
         account.withdraw(100);
         account.deposit(300);
         account.printStatement();
+        InOrder inOrder = inOrder(display);
 
-        verify(display).printLine("DATE | AMOUNT | BALANCE");
-        verify(display).printLine("17/01/2021 | 300.00 | 900.00");
-        verify(display).printLine("16/01/2021 | -100.00 | 600.00");
-        verify(display).printLine("15/01/2021 | 700.00 | 700.00");
+        inOrder.verify(display).printLine("DATE | AMOUNT | BALANCE");
+        inOrder.verify(display).printLine("17/01/2021 | 300.00 | 900.00");
+        inOrder.verify(display).printLine("16/01/2021 | -100.00 | 600.00");
+        inOrder.verify(display).printLine("15/01/2021 | 700.00 | 700.00");
     }
 
 }
