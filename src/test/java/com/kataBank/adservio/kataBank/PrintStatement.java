@@ -22,7 +22,8 @@ public class PrintStatement {
     @Before
     public void setUp() {
         TransactionRepository transactionRepository = new TransactionRepository();
-        account = new Account(transactionRepository);
+        StatementPrinter statementPrinter = new StatementPrinter();
+        account = new Account(transactionRepository,statementPrinter);
     }
 
     @Test
