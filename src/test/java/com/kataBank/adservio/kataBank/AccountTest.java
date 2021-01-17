@@ -41,7 +41,7 @@ public class AccountTest {
 
     @Test
     public void printStatement() {
-        List<Transaction> transactions = asList(new Transaction());
+        List<Transaction> transactions = asList(new Transaction("17/01/2021",100));
         given(transactionRepository.allTransactions()).willReturn(transactions);
         account.printStatement();
         verify(statementPrinter).print(transactions);

@@ -18,10 +18,12 @@ public class PrintStatement {
     @Mock
     Display display;
     private Account account;
+   @Mock
+   TransactionDtate transactionDtate;
 
     @Before
     public void setUp() {
-        TransactionRepository transactionRepository = new TransactionRepository();
+        TransactionRepository transactionRepository = new TransactionRepository(transactionDtate);
         StatementPrinter statementPrinter = new StatementPrinter();
         account = new Account(transactionRepository,statementPrinter);
     }
