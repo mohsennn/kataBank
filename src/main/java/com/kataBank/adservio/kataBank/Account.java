@@ -19,5 +19,6 @@ public class Account {
     }
 
     public void printStatement() {
+        statementPrinter.print(transactionRepository.allTransactions());
     }
 }
