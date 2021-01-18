@@ -6,6 +6,14 @@ public class Transaction {
     private final String date;
     private final int amount;
 
+    public int amount() {
+        return amount;
+    }
+
+    public String date() {
+        return date;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -20,7 +28,7 @@ public class Transaction {
     }
 
     public Transaction(String date, int amount) {
-        this.date=date;
-        this.amount=amount;
+        this.date = date;
+        this.amount = amount;
     }
 }

@@ -1,6 +1,7 @@
 package com.kataBank.adservio.kataBank;
 
 public class Display {
-    public void printLine(String text)  {
+    public void display(String str)  {
+        System.out.println(str);
     }
 }

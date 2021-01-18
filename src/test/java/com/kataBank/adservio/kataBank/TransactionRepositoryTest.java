@@ -42,7 +42,6 @@ public class TransactionRepositoryTest {
         assertThat(transactions.get(0), is(transaction(TODAY, -100)));
     }
 
-
     private Transaction transaction(String date, int amount) {
         return new Transaction(date, amount);
     }
