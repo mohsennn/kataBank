@@ -23,7 +23,7 @@ public class PrintStatement {
     @Before
     public void setUp() {
         TransactionRepository transactionRepository = new TransactionRepository(transactionDate);
-        StatementPrinter statementPrinter = new StatementPrinter();
+        StatementPrinter statementPrinter = new StatementPrinter(display);
         account = new Account(transactionRepository,statementPrinter);
     }
 
